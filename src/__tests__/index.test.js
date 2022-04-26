@@ -1,16 +1,3 @@
-// Today we cover UNIT testing
-// https://kentcdodds.com/blog/static-vs-unit-vs-integration-vs-e2e-tests
-
-
-
-// First issue: we cannot use the import syntax in Jest
-// To solve this:
-// https://jestjs.io/docs/ecmascript-modules
-
-// Second issue: we are starting the server WHILE importing the module
-// To solve this:
-// we can separate our express app configuration 
-
 import app from '../app.js'
 import supertest from "supertest"
 import mongoose from 'mongoose'

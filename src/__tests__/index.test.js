@@ -45,30 +45,24 @@ describe("Testing the environment", () => {
         productId = response.body._id
     })
 
-    // const invalidProduct = {
-    //     price: "100"
-    // }
+    const invalidProduct = {
+        price: "100"
+    }
 
-    // it("should test that when creating a product with invalid data we receive 400", async () => {
+    it("should test that when creating a product with invalid data we receive 400", async () => {
 
-    //     const response = await client.post("/products").send(invalidProduct)
+        const response = await client.post("/products").send(invalidProduct)
 
-    //     expect(response.status).toBe(400)
-    // })
+        expect(response.status).toBe(400)
+    })
 
-    // it("should test that when retrieve a product with ID we are receiving a product", async () => {
-    //     const response = await client.get("/products/" + productId)
 
-    //     expect(response.status).toBe(200)
-    //     expect(response.body.name).toBe(validProduct.name)
-    // })
+    it("should test that when retrieve a product with ID we are receiving a product", async () => {
+        const response = await client.get("/products/" + productId)
 
-    // it("should test that when retrieve a product with ID we are receiving a product", async () => {
-    //     const response = await client.get("/products/" + productId)
-
-    //     expect(response.status).toBe(200)
-    //     expect(response.body.name).toBe(validProduct.name)
-    // })
+        expect(response.status).toBe(200)
+        expect(response.body.name).toBe(validProduct.name)
+    })
 
     const invalidProductId =  "999999999999999999999999"
 
@@ -78,7 +72,7 @@ describe("Testing the environment", () => {
         expect(response.status).toBe(404)
     })
 
-    const deleteId =  "626806ceec943dc05c0470aa"
+    const deleteId =  "626808498d83fee36982ce47"
     
     
 
@@ -95,7 +89,7 @@ describe("Testing the environment", () => {
     })
 
     const validNewProduct = {
-        name: "changed8"
+        name: "changed9"
     }
 
     const modifyId = "6267fb056123a5afc1efd1de"
@@ -109,7 +103,7 @@ describe("Testing the environment", () => {
         expect(typeof response.body.name).toBe("string")
     })
 
-    it("should test that when trying to put a product with wrong ID we receive a 404", async () => {
+    it("should test that when trying to modify a product with wrong ID we receive a 404", async () => {
         const response = await client.put("/products/" + invalidProductId)     
         expect(response.status).toBe(404)
     })

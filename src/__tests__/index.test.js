@@ -72,7 +72,7 @@ describe("Testing the environment", () => {
         expect(response.status).toBe(404)
     })
 
-    const deleteId =  "626808498d83fee36982ce47"
+    const deleteId =  "626811a90f10274e2aeacca4"
     
     
 
@@ -92,7 +92,7 @@ describe("Testing the environment", () => {
         name: "changed9"
     }
 
-    const modifyId = "6267fb056123a5afc1efd1de"
+    const modifyId = "6268116536c8e767aae3dbf8"
 
     it("should test that when modifying a product with valid data the product get modified", async () => {
 

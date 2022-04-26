@@ -47,7 +47,6 @@ describe("Testing the environment", () => {
 
     let productId
 
-    // "it" and "test" are the same function i.e. "it" is just an alias
     it("should test than when creating a product we are receiving a product id and a 201 status", async () => {
         const response = await client.post("/products").send(validProduct)
 

@@ -77,9 +77,27 @@ describe("Testing the environment", () => {
         expect(response.body.name).toBe(validProduct.name)
     })
 
+    it("should test that when retrieve a product with ID we are receiving a product", async () => {
+        const response = await client.get("/products/" + productId)
+
+        expect(response.status).toBe(200)
+        expect(response.body.name).toBe(validProduct.name)
+    })
+
+    const invalidProductId = {
+        _id: "999999999999999999999999"
+    }
+
+    it("should test that when trying to retrieve a product with wrong ID we receive a 404", async () => {
+        const response = await client.get("/products/" + invalidProductId._id)
+
+        expect(response.status).toBe(404)
+    })
+
+
     afterAll(async () => {
         console.log("afterAll")
-        await mongoose.connection.dropDatabase()
+        // await mongoose.connection.dropDatabase()
         await mongoose.connection.close()
     })
 
